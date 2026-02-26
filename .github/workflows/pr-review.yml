@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: pr-reviewer
+        working-directory: pr-reviewer-entry
 
       - name: Run AI Reviewer
         env:
@@ -31,4 +31,4 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: node index.js
-        working-directory: pr-reviewer
+        working-directory: pr-reviewer-entry
