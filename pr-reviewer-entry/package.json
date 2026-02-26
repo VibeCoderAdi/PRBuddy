@@ -12,6 +12,6 @@
   "type": "commonjs",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.78.0",
-    "@octokit/rest": "^22.0.1"
+    "@octokit/rest": "^19.0.13"
   }
 }
