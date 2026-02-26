@@ -52,4 +52,13 @@ public class BankAccount {
         account.withdraw(9999);  // violation: overdraft allowed
         System.out.println("Balance: " + account.balance);
     }
+
+    public void transfer(BankAccount target, double amount) {
+        // violation: no null check on target
+        // violation: no validation on amount
+        // violation: no check if balance is sufficient
+        this.balance -= amount;
+        target.balance += amount;
+        System.out.println("Transferred " + amount + " to " + target.ownerName);
+    }
 }
