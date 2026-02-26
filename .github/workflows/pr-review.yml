@@ -20,6 +20,13 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Debug - list files
+        run: |
+          echo "Root files:"
+          ls -la
+          echo "pr-reviewer-entry files:"
+          ls -la pr-reviewer-entry/
+
       - name: Install dependencies
         run: |
           cd pr-reviewer-entry
