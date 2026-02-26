@@ -20,9 +20,17 @@ jobs:
         with:
           node-version: "18"
 
+      - name: Debug - list files
+        run: |
+          echo "Root files:"
+          ls -la
+          echo "pr-reviewer-entry files:"
+          ls -la pr-reviewer-entry/
+
       - name: Install dependencies
-        run: npm install
-        working-directory: pr-reviewer
+        run: |
+          cd pr-reviewer-entry
+          npm install
 
       - name: Run AI Reviewer
         env:
@@ -30,5 +38,6 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-        run: node index.js
-        working-directory: pr-reviewer
+        run: |
+          cd pr-reviewer-entry
+          node index.js
